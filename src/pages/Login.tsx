@@ -10,7 +10,7 @@ export interface ILogin {
 
 export const Login = ({ connectWallet }: ILogin) => {
     return (
-        <div className="Login-page">
+        <div className="login-page">
             <img src={logo} width="250px" alt="logo" />
             <Typography variant="h2">Crypto address book</Typography>
             <Typography variant="h6">The easiest and quickest way to manage and pay your contacts. <br />

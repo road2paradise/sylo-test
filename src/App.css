@@ -1,7 +1,12 @@
-.Login-page {
+.login-page {
   text-align: center;
 }
-.Address-Page{
+.address-page{
   text-align: center;
   margin-top: 10%;
+}
+.address-entry{
+  display: flex;
+  align-items: 'center';
+  flex-wrap: 'wrap',
 }
