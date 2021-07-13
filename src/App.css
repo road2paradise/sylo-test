@@ -10,3 +10,10 @@
   align-items: 'center';
   flex-wrap: 'wrap',
 }
+.add-contact-page{
+  text-align: center;
+  margin-top: 10%;  
+}
+.add-contact-title {
+  margin-bottom: 20px;
+}
