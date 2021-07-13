@@ -3,10 +3,10 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import Web3 from 'web3';
 
 export interface IAddContact {
-    addContact: () => void
+    showAddContacts: () => void
 }
 
-export const AddContact = ({ addContact }: IAddContact) => {
+export const AddContact = ({ showAddContacts }: IAddContact) => {
     const [name, setName] = useState<string>('');
     const [address, setAddress] = useState<string>('');
 
@@ -37,8 +37,7 @@ export const AddContact = ({ addContact }: IAddContact) => {
         }
         addressArray.push(contact);
         localStorage.setItem("address", JSON.stringify(addressArray));
-        // Callback to render Address book again.
-        addContact();
+        showAddContacts();
     }
 
     function getLocalAddresses() {
