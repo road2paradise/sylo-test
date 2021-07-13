@@ -10,6 +10,7 @@ export interface IAddress {
 
 export const Address = () => {
     // Some states here to add address etc.
+    // This is just for testing :)
     const address = [];
     address[0] = { name: "Kenny Nguyen", address: "someCryptoAddress" };
     address[1] = { name: "Kenny Nguyen", address: "someCryptoAddress" };
@@ -31,13 +32,14 @@ export const Address = () => {
             </Typography>
             <Grid container direction="column" spacing={4} alignItems="center" justifyContent="center">
                 <Grid item>
-                    <Button>
+                    <Button onClick={addContact}>
                         <AddIcon />
                         <Typography variant='h5'>
                             New Contact
                         </Typography>
                     </Button>
                 </Grid>
+                {/* Should inject UUID keys here to prevent re-rendering due to key mismatch. NEVER use array indexes as keys. */}
                 {addressLocalJSON.map((address: IAddressEntry) => {
                     return (
                         <AddressEntry {...address} />
