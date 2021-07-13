@@ -1,6 +1,7 @@
 import React from 'react'
 import { Typography, IconButton, Icon, Button, Box, Grid } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import { AddressEntry, IAddressEntry } from '../components/AddressEntry';
 
 export interface IAddress {
     // Some interface stuff
@@ -10,20 +11,26 @@ export interface IAddress {
 export const Address = () => {
     // Some states here to add address etc.
     const address = [];
-    address[0] = "some-address-1"
-    address[1] = "some-address-1"
-    address[2] = "some-address-1"
-    address[3] = "some-address-1"
+    address[0] = { name: "Kenny Nguyen", address: "someCryptoAddress" };
+    address[1] = { name: "Kenny Nguyen", address: "someCryptoAddress" };
+    address[2] = { name: "Kenny Nguyen", address: "someCryptoAddress" };
 
     localStorage.setItem("address", JSON.stringify(address));
 
+
+    let addressLocal = localStorage.getItem("address");
+    var addressLocalJSON = [];
+    if (addressLocal !== null) {
+        addressLocalJSON = JSON.parse(addressLocal);
+    }
+
     return (
-        <div className="Address-Page">
-            <Grid container direction='row' spacing={2}>
+        <div className="address-page">
+            <Typography variant='h4'>
+                Address Book
+            </Typography>
+            <Grid container direction="column" spacing={4} alignItems="center" justifyContent="center">
                 <Grid item>
-                    <Typography variant='h4'>
-                        Address Book
-                    </Typography>
                     <Button>
                         <AddIcon />
                         <Typography variant='h5'>
@@ -31,8 +38,12 @@ export const Address = () => {
                         </Typography>
                     </Button>
                 </Grid>
+                {addressLocalJSON.map((address: IAddressEntry) => {
+                    return (
+                        <AddressEntry {...address} />
+                    )
+                })}
             </Grid>
-            {`${address[0]} + ${address[1]} + ${address[2]} + ${address[3]}`}
-        </div>
+        </div >
     );
 }
